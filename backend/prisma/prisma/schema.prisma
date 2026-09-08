@@ -1,0 +1,88 @@
+// Desarrollador: Ely Yhanel Aguilar Jimenez - RU: e123375 / CI: 12625705
+// Proyecto: BiblioSur - Sistema Inteligente de Gestión de Biblioteca
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RolUsuario {
+  ESTUDIANTE
+  DOCENTE
+  BIBLIOTECARIO
+  ADMINISTRADOR
+}
+
+enum EstadoPrestamo {
+  ACTIVO
+  DEVUELTO
+  VENCIDO
+}
+
+enum EstadoReserva {
+  PENDIENTE
+  DISPONIBLE
+  CANCELADA
+  COMPLETADA
+}
+
+model Usuario {
+  id            Int         @id @default(autoincrement())
+  nombre        String
+  email         String      @unique
+  passwordHash  String
+  rol           RolUsuario  @default(ESTUDIANTE)
+  creadoEn      DateTime    @default(now())
+
+  prestamos     Prestamo[]
+  reservas      Reserva[]
+
+  @@map("usuarios")
+}
+
+model Libro {
+  id            Int         @id @default(autoincrement())
+  titulo        String
+  autor         String
+  isbn          String      @unique
+  categoria     String
+  stock         Int         @default(0)
+  creadoEn      DateTime    @default(now())
+
+  prestamos     Prestamo[]
+  reservas      Reserva[]
+
+  @@map("libros")
+}
+
+model Prestamo {
+  id                Int             @id @default(autoincrement())
+  usuarioId         Int
+  libroId           Int
+  fechaPrestamo     DateTime        @default(now())
+  fechaLimite       DateTime
+  fechaDevolucion   DateTime?
+  estado            EstadoPrestamo  @default(ACTIVO)
+
+  usuario           Usuario         @relation(fields: [usuarioId], references: [id])
+  libro             Libro           @relation(fields: [libroId], references: [id])
+
+  @@map("prestamos")
+}
+
+model Reserva {
+  id            Int           @id @default(autoincrement())
+  usuarioId     Int
+  libroId       Int
+  fechaReserva  DateTime      @default(now())
+  estado        EstadoReserva @default(PENDIENTE)
+
+  usuario       Usuario       @relation(fields: [usuarioId], references: [id])
+  libro         Libro         @relation(fields: [libroId], references: [id])
+
+  @@map("reservas")
+}
