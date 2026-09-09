@@ -1,0 +1,62 @@
+# Desarrollador: Ely Yhanel Aguilar Jimenez - RU: e123375 / CI: 12625705
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: bibliosur_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin_bibliosur
+      POSTGRES_PASSWORD: BiblioSur2026
+      POSTGRES_DB: bibliosur_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - bibliosur_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin_bibliosur -d bibliosur_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bibliosur_backend_api
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./.env
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - bibliosur_network
+
+  frontend-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bibliosur_frontend_app
+    restart: always
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./.env
+    depends_on:
+      - backend-api
+    networks:
+      - bibliosur_network
+
+volumes:
+  postgres_data:
+
+networks:
+  bibliosur_network:
+    driver: bridge
