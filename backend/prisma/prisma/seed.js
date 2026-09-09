@@ -2,13 +2,18 @@
 // Script de poblado inicial - BiblioSur
 
 const { PrismaClient } = require('@prisma/client');
+const { PrismaPg } = require('@prisma/adapter-pg');
 const bcrypt = require('bcryptjs');
-const prisma = new PrismaClient();
+
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL,
+});
+
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log('🌱 Iniciando el proceso de Seeding (BiblioSur)...');
 
-  // Usuarios
   const passwordHash = await bcrypt.hash('password123', 10);
 
   const admin = await prisma.usuario.upsert({
@@ -46,7 +51,6 @@ async function main() {
 
   console.log('✅ Usuarios base creados.');
 
-  // Libros
   const libro1 = await prisma.libro.upsert({
     where: { isbn: '978-84-376-0494-7' },
     update: {},
@@ -85,7 +89,6 @@ async function main() {
 
   console.log('✅ Libros cargados al catálogo.');
 
-  // Préstamo de ejemplo
   const fechaLimite = new Date();
   fechaLimite.setDate(fechaLimite.getDate() + 7);
 
