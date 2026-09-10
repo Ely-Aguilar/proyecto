@@ -21,7 +21,25 @@ BiblioSur busca digitalizar y optimizar los procesos de una biblioteca: registro
 - **Agente de IA:** reglas y skills de TasteSkill (https://www.tasteskill.dev/)
 
 ## Estructura del Repositorio
-
+proyecto-sistemas-paralelos/
+├── agente/
+│ ├── rules.md
+│ └── skills/
+│ ├── design-taste-frontend/
+│ ├── minimalist-ui/
+│ └── bibliosur-backend-rules/
+├── backend/
+│ ├── index.js
+│ ├── Dockerfile
+│ └── prisma/
+│ └── prisma/
+│ ├── schema.prisma
+│ └── seed.js
+├── frontend/
+│ ├── src/
+│ └── Dockerfile
+├── docker-compose.yml
+└── README.md
 ## Cómo ejecutar el proyecto
 
 1. Clonar el repositorio
