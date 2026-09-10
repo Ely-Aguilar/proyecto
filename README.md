@@ -1,10 +1,34 @@
 # Sistema Inteligente de Gestión de Biblioteca (BiblioSur)
 
-Proyecto desarrollado bajo la metodología **Scrum** como parte del curso de Ingeniería de Software. La aplicación (React) gestiona catálogo, préstamos y usuarios de una biblioteca.
+**Materia:** Sistemas Paralelos
+**Docente:** Ing. Elias Cassal Baldiviezo
+**Integrante:** Ely Yhanel Aguilar Jimenez - RU: e123375 / CI: 12625705
 
-##  Descripción general
+Proyecto desarrollado bajo la metodología **Scrum**, aplicando la arquitectura técnica de SysLab 2.0 (Backend + Frontend + PostgreSQL + Prisma + Agente de IA). La aplicación gestiona catálogo, préstamos y usuarios de una biblioteca.
+
+## Descripción general
 
 BiblioSur busca digitalizar y optimizar los procesos de una biblioteca: registro de libros, control de préstamos y devoluciones, gestión de usuarios y generación de reportes, todo desde una interfaz web moderna.
+
+---
+
+## Arquitectura de Tecnologías
+
+- **Backend:** Node.js + Express
+- **Frontend:** React + Vite
+- **Base de datos:** PostgreSQL con Prisma ORM
+- **Despliegue:** Docker Compose (3 contenedores: backend, frontend, base de datos)
+- **Agente de IA:** reglas y skills de TasteSkill (https://www.tasteskill.dev/)
+
+## Estructura del Repositorio
+
+## Cómo ejecutar el proyecto
+
+1. Clonar el repositorio
+2. Crear el archivo `.env` en la raíz con las variables necesarias
+3. Ejecutar:
+4. Backend disponible en `http://localhost:5000`
+5. Frontend disponible en `http://localhost:5173`
 
 ---
 
@@ -25,7 +49,7 @@ BiblioSur busca digitalizar y optimizar los procesos de una biblioteca: registro
 
 ---
 
-##  Requerimientos No Funcionales (RNF)
+## Requerimientos No Funcionales (RNF)
 
 | ID | Requerimiento |
 |----|----------------|
@@ -40,7 +64,7 @@ BiblioSur busca digitalizar y optimizar los procesos de una biblioteca: registro
 
 ---
 
-##Historias de Usuario
+## Historias de Usuario
 
 ### Módulo de Catálogo
 **HU01 –** Como *bibliotecario*, quiero registrar nuevos libros en el sistema, para mantener el catálogo actualizado.
@@ -69,18 +93,3 @@ BiblioSur busca digitalizar y optimizar los procesos de una biblioteca: registro
 ### Módulo de Reportes
 **HU08 –** Como *administrador*, quiero generar reportes de los libros más solicitados, para tomar decisiones sobre nuevas adquisiciones.
 > **Criterios de aceptación:** el reporte se puede filtrar por rango de fechas y exportar.
-
----
-
-## Tecnologías
-
-- Frontend: React
-- Metodología: Scrum
-- (Completar según stack final del backend/base de datos)
-
-## Próximos pasos
-
-- [ ] Definir backend y base de datos
-- [ ] Configurar repositorio en GitHub
-- [ ] Configurar despliegue (Vercel / Netlify / GitHub Pages)
-- [ ] Refinar backlog con el equipo Scrum
