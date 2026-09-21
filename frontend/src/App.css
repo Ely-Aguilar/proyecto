@@ -118,3 +118,36 @@ nav button.activo { font-weight: 700; text-decoration: underline; }
 .aviso.ok { background: rgba(46, 160, 67, 0.15); border: 1px solid rgba(46, 160, 67, 0.6); }
 .aviso.error { background: rgba(218, 54, 51, 0.15); border: 1px solid rgba(218, 54, 51, 0.6); }
 .etiqueta { padding: 2px 8px; border-radius: 999px; font-size: 0.85em; border: 1px solid rgba(128, 128, 128, 0.5); }
+
+/* --- Formularios, acciones y botón Volver --- */
+.panel input[type='number'], .panel input[type='email'], .panel input[type='password'] { width: 100%; padding: 10px; margin: 8px 0 16px; box-sizing: border-box; }
+.barra { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.acciones { display: flex; gap: 8px; flex-wrap: wrap; }
+.volver { cursor: pointer; }
+.formulario { border: 1px solid rgba(128, 128, 128, 0.4); border-radius: 8px; padding: 16px; margin: 16px 0; }
+.formulario label { display: block; font-size: 0.9em; }
+.peligro { color: #da3633; border: 1px solid #da3633; background: transparent; cursor: pointer; padding: 4px 10px; border-radius: 6px; }
+
+/* --- Vistas funcionales de BiblioSur --- */
+.card { cursor: pointer; }
+nav button.activo { font-weight: 700; text-decoration: underline; }
+.panel { max-width: 900px; margin: 24px auto; padding: 0 16px; text-align: left; }
+.panel input[type='text'], .panel input[type='number'], .panel input[type='email'], .panel input[type='password'], .panel select { width: 100%; padding: 10px; margin: 8px 0 16px; box-sizing: border-box; }
+.panel label { display: block; font-size: 0.9em; }
+.tabla { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.tabla th, .tabla td { padding: 10px; border-bottom: 1px solid rgba(128, 128, 128, 0.3); text-align: left; }
+.aviso { padding: 10px 12px; border-radius: 8px; margin: 12px 0; }
+.aviso.ok { background: rgba(46, 160, 67, 0.15); border: 1px solid rgba(46, 160, 67, 0.6); }
+.aviso.error { background: rgba(218, 54, 51, 0.15); border: 1px solid rgba(218, 54, 51, 0.6); }
+.etiqueta { padding: 2px 8px; border-radius: 999px; font-size: 0.85em; border: 1px solid rgba(128, 128, 128, 0.5); white-space: nowrap; }
+.etiqueta.ok { color: #2ea043; border-color: #2ea043; }
+.etiqueta.atrasado { color: #da3633; border-color: #da3633; font-weight: 600; }
+.barra { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.acciones { display: flex; gap: 8px; flex-wrap: wrap; }
+.volver { cursor: pointer; }
+.peligro { color: #da3633; border: 1px solid #da3633; background: transparent; cursor: pointer; padding: 4px 10px; border-radius: 6px; }
+.modal-fondo { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 1000; }
+.modal { background: Canvas; color: CanvasText; border: 1px solid rgba(128, 128, 128, 0.5); border-radius: 12px; padding: 20px; width: 100%; max-width: 480px; max-height: 90vh; overflow: auto; text-align: left; box-sizing: border-box; }
+.contadores { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
+.contador { border: 1px solid rgba(128, 128, 128, 0.4); border-radius: 10px; padding: 16px; text-align: center; }
+.contador strong { display: block; font-size: 1.9em; }
