@@ -107,3 +107,14 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 }
+/* --- Vistas funcionales: Catálogo, Préstamos, Usuarios, Informes --- */
+.card { cursor: pointer; }
+nav button.activo { font-weight: 700; text-decoration: underline; }
+.panel { max-width: 900px; margin: 24px auto; padding: 0 16px; text-align: left; }
+.panel input[type='text'], .panel select { width: 100%; padding: 10px; margin: 8px 0 16px; box-sizing: border-box; }
+.tabla { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.tabla th, .tabla td { padding: 10px; border-bottom: 1px solid rgba(128, 128, 128, 0.3); text-align: left; }
+.aviso { padding: 10px 12px; border-radius: 8px; margin: 12px 0; }
+.aviso.ok { background: rgba(46, 160, 67, 0.15); border: 1px solid rgba(46, 160, 67, 0.6); }
+.aviso.error { background: rgba(218, 54, 51, 0.15); border: 1px solid rgba(218, 54, 51, 0.6); }
+.etiqueta { padding: 2px 8px; border-radius: 999px; font-size: 0.85em; border: 1px solid rgba(128, 128, 128, 0.5); }
